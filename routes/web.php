@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\ShopComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +21,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', HomeComponent::class)->name('Home');
+Route::get('/shop', ShopComponent::class)->name('Shop');
+Route::get('/cart', CartComponent::class)->name('Cart');
+Route::get('/checkout', CheckoutComponent::class)->name('Checkout');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
