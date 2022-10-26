@@ -6,7 +6,7 @@
 
 			<div class="wrap-breadcrumb">
 				<ul>
-					<li class="item-link"><a href="#" class="link">home</a></li>
+					<li class="item-link"><a href="{{route('Home')}}" class="link">home</a></li>
 					<li class="item-link"><span>login</span></li>
 				</ul>
 			</div>
@@ -16,24 +16,25 @@
 						<div class="wrap-login-item ">
 							<div class="login-form form-item form-stl">
                                 <x-jet-validation-errors class="mb-4" />
-								<form name="frm-login">
+								<form name="frm-login" action="{{route('login')}}" method="POST">
+                                    @csrf
 									<fieldset class="wrap-title">
 										<h3 class="form-title">Log in to your account</h3>
 									</fieldset>
 									<fieldset class="wrap-input">
 										<label for="frm-login-uname">Email Address:</label>
-										<input type="text" id="frm-login-uname" name="email" placeholder="Type your email address">
+										<input type="email" id="frm-login-uname" name="email" :value="old('email')" required autocomplete="" placeholder="Type your email address">
 									</fieldset>
 									<fieldset class="wrap-input">
 										<label for="frm-login-pass">Password:</label>
-										<input type="password" id="frm-login-pass" name="pass" placeholder="************">
+										<input type="password" id="frm-login-pass" name="password" required  placeholder="************">
 									</fieldset>
 
 									<fieldset class="wrap-input">
 										<label class="remember-field">
 											<input class="frm-input " name="rememberme" id="rememberme" value="forever" type="checkbox"><span>Remember me</span>
 										</label>
-										<a class="link-function left-position" href="#" title="Forgotten password?">Forgotten password?</a>
+										<a class="link-function left-position" href="{{route('password.request')}}" title="Forgotten password?">Forgotten password?</a>
 									</fieldset>
 									<input type="submit" class="btn btn-submit" value="Login" name="submit">
 								</form>

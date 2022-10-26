@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DemoController;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 
 use App\Http\Livewire\CartComponent;
@@ -27,6 +28,7 @@ Route::get('/', HomeComponent::class)->name('Home');
 Route::get('/shop', ShopComponent::class)->name('Shop');
 Route::get('/cart', CartComponent::class)->name('Cart');
 Route::get('/checkout', CheckoutComponent::class)->name('Checkout');
+Route::post('/demo', [DemoController::class, 'index'])->name('demo');
 
 // Route::middleware([
 //     'auth:sanctum',
