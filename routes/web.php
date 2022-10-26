@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Livewire\Admin\AdminDashboardComponent;
+
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
+use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,12 +28,18 @@ Route::get('/shop', ShopComponent::class)->name('Shop');
 Route::get('/cart', CartComponent::class)->name('Cart');
 Route::get('/checkout', CheckoutComponent::class)->name('Checkout');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
+Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified', 'authadmin')])->group(function () {
+    Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+});
+Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified')])->group(function () {
+    Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
 });

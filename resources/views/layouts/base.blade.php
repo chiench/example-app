@@ -49,10 +49,50 @@
                         <div class="topbar-menu right-menu">
                             <ul>
                                 @if (Route::has('login'))
+                                    @auth
+                                        @if((Auth::user()->utype === 'ADM' ))
+                                            <li class="menu-item menu-item-has-children parent">
+                                                <a title="Dollar (USD)" href="#">My Account {{ Auth::user()->name }}<i class="fa fa-angle-down"
+                                                        aria-hidden="true"></i></a>
+                                                <ul class="submenu curency">
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Logout" href="{{route('logout')}}"
+                                                        onclick="event.preventDefault(); document.getElementById('form-logout').submit()"
+                                                        >Logout</a>
+                                                        <form id='form-logout' method="POST" action="{{route('logout')}}">
+                                                            @csrf
+                                                        </form>
+                                                    </li>
 
-                                <li class="menu-item"><a title="Register or Login" href="{{route('login')}}">Login</a></li>
-                                <li class="menu-item"><a title="Register or Login" href="{{route('register')}}">Register</a>
+                                                </ul>
+                                            </li>
+                                        @else
+                                            <li class="menu-item menu-item-has-children parent">
+                                                <a title="Dollar (USD)" href="#">My Account {{ Auth::user()->name }}<i class="fa fa-angle-down"
+                                                        aria-hidden="true"></i></a>
+                                                <ul class="submenu curency">
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Logout" href="{{route('logout')}}"
+                                                        onclick="event.preventDefault(); document.getElementById('form-logout').submit()"
+                                                        >Logout</a>
+                                                        <form id='form-logout' method="POST" action="{{route('logout')}}">
+                                                            @csrf
+                                                        </form>                                                    </li>
 
+                                                </ul>
+                                            </li>
+                                        @endif
+                                     @else
+                                     <li class="menu-item"><a title="Register or Login" href="{{route('login')}}">Login</a></li>
+                                     <li class="menu-item"><a title="Register or Login" href="{{route('register')}}">Register</a>
+
+                                     @endif
                                 @endif
                                 </li>
                                 <li class="menu-item lang-menu menu-item-has-children parent">

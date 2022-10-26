@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('utype')->default('USR')->comment('ADM for Admin and USR for User or Customer');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->string('utype')->default('USR')->comment('ADM for Admin and USR for User or Customer');
             $table->timestamps();
         });
     }
