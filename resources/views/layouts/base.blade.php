@@ -13,13 +13,14 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/chosen.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/color-01.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/flexslider.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css')}}">
 </head>
 
 <body class="home-page home-01 ">
@@ -97,20 +98,20 @@
                                 </li>
                                 <li class="menu-item lang-menu menu-item-has-children parent">
                                     <a title="English" href="#"><span class="img label-before"><img
-                                                src="assets/images/lang-en.png" alt="lang-en"></span>English<i
+                                                src="{{asset('assets/images/lang-en.png" alt="lang-en"></span>English<')}}i
                                             class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu lang">
                                         <li class="menu-item"><a title="hungary" href="#"><span
-                                                    class="img label-before"><img src="assets/images/lang-hun.png"
+                                                    class="img label-before"><img src="{{asset('assets/images/lang-hun.png')}}"
                                                         alt="lang-hun"></span>Hungary</a></li>
                                         <li class="menu-item"><a title="german" href="#"><span
-                                                    class="img label-before"><img src="assets/images/lang-ger.png"
+                                                    class="img label-before"><img src="{{asset('assets/images/lang-ger.png')}}"
                                                         alt="lang-ger"></span>German</a></li>
                                         <li class="menu-item"><a title="french" href="#"><span
-                                                    class="img label-before"><img src="assets/images/lang-fra.png"
+                                                    class="img label-before"><img src="{{asset('assets/images/lang-fra.png')}}"
                                                         alt="lang-fre"></span>French</a></li>
                                         <li class="menu-item"><a title="canada" href="#"><span
-                                                    class="img label-before"><img src="assets/images/lang-can.png"
+                                                    class="img label-before"><img src="{{asset('assets/images/lang-can.png')}}"
                                                         alt="lang-can"></span>Canada</a></li>
                                     </ul>
                                 </li>
@@ -138,7 +139,7 @@
                     <div class="mid-section main-info-area">
 
                         <div class="wrap-logo-top left-section">
-                            <a href="index.html" class="link-to-home"><img src="assets/images/logo-top-1.png"
+                            <a href="index.html" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}"
                                     alt="mercado"></a>
                         </div>
 
@@ -230,7 +231,7 @@
                         <div class="container">
                             <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu">
                                 <li class="menu-item home-icon">
-                                    <a href="index.html" class="link-term mercado-item-title"><i class="fa fa-home"
+                                    <a href="/" class="link-term mercado-item-title"><i class="fa fa-home"
                                             aria-hidden="true"></i></a>
                                 </li>
                                 <li class="menu-item">
@@ -411,7 +412,7 @@
                                 <h3 class="item-header">We Using Safe Payments:</h3>
                                 <div class="item-content">
                                     <div class="wrap-list-item wrap-gallery">
-                                        <img src="assets/images/payment.png" style="max-width: 260px;">
+                                        <img src="{{asset('assets/images/payment.png')}}" style="max-width: 260px;">
                                     </div>
                                 </div>
                             </div>
@@ -447,12 +448,12 @@
                                         <ul>
                                             <li><a href="#" class="link-to-item"
                                                     title="our application on apple store">
-                                                    <figure><img src="assets/images/brands/apple-store.png"
+                                                    <figure><img src="{{asset('assets/images/brands/apple-store.png')}}"
                                                             alt="apple store" width="128" height="36"></figure>
                                                 </a></li>
                                             <li><a href="#" class="link-to-item"
                                                     title="our application on google play store">
-                                                    <figure><img src="assets/images/brands/google-play-store.png"
+                                                    <figure><img src="{{asset('assets/images/brands/google-play-store.png')}}"
                                                             alt="google play store" width="128" height="36">
                                                     </figure>
                                                 </a></li>
@@ -567,15 +568,15 @@
         </div>
     </footer>
 
-    <script src="assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4"></script>
-    <script src="assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.flexslider.js"></script>
-    <script src="assets/js/chosen.jquery.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.countdown.min.js"></script>
-    <script src="assets/js/jquery.sticky.js"></script>
-    <script src="assets/js/functions.js"></script>
+    <script src="{{asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
+    <script src="{{asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.flexslider.js')}}"></script>
+    <script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
+    <script src="{{asset('assets/js/functions.js')}}"></script>
 </body>
 
 </html>
