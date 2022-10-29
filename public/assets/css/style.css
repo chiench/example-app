@@ -7187,3 +7187,23 @@ background-color: #888888;
     font-weight: 600;
 
 }
+.no-products {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid #d56a6a;
+    border-radius: 10px;
+}
+.no-products p {
+    font-weight: 600;
+    font-size: 24px;
+}
+.no-products a {
+    font-weight: 700;
+    font-size: 17px;
+}
+.no-products a:hover{
+    color: #ff2832;
+}
