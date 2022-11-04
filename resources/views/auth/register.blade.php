@@ -18,8 +18,6 @@
                                 <x-jet-validation-errors class="mb-4" />
 								<form class="form-stl" action="{{route('register')}}" name="frm-login" method="POST" >
                                     @csrf
-
-
 									<fieldset class="wrap-title">
 										<h3 class="form-title">Create an account</h3>
 
