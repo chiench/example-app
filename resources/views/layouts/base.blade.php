@@ -54,11 +54,20 @@
                                     @auth
                                         @if((Auth::user()->utype === 'ADM' ))
                                             <li class="menu-item menu-item-has-children parent">
-                                                <a title="Dollar (USD)" href="#">My Account {{ Auth::user()->name }}<i class="fa fa-angle-down"
+                                                <a title="Dollar (USD)" href="#">{{ Auth::user()->name }}<i class="fa fa-angle-down"
                                                         aria-hidden="true"></i></a>
                                                 <ul class="submenu curency">
                                                     <li class="menu-item">
-                                                        <a title="Dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
+                                                        <a title="Dashboard" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{route('admin.categories')}}">Category</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Logout" href="{{route('logout')}}"
@@ -73,11 +82,11 @@
                                             </li>
                                         @else
                                             <li class="menu-item menu-item-has-children parent">
-                                                <a title="Dollar (USD)" href="#">My Account {{ Auth::user()->name }}<i class="fa fa-angle-down"
+                                                <a title="Dollar (USD)" href="#"> {{ Auth::user()->name }}<i class="fa fa-angle-down"
                                                         aria-hidden="true"></i></a>
                                                 <ul class="submenu curency">
                                                     <li class="menu-item">
-                                                        <a title="Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
+                                                        <a title="Dashboard" href="{{route('user.dashboard')}}">User Dashboard</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Logout" href="{{route('logout')}}"

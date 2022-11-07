@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\DemoController;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
-
+use App\Http\Livewire\Admin\CategoryAddComponent;
+use App\Http\Livewire\Admin\CategoryComponent;
+use App\Http\Livewire\Admin\CategoryEditComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
@@ -45,6 +47,12 @@ Route::post('/demo', [DemoController::class, 'index'])->name('demo');
 // });
 Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified', 'authadmin')])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    //Category
+    Route::get('/admin/categories', CategoryComponent::class)->name('admin.categories');
+    Route::get('/admin/categories/add', CategoryAddComponent::class)->name('admin.categories.add');
+    Route::get('/admin/categories/edit', CategoryEditComponent::class)->name('admin.categories.edit');
+    //Product
+
 });
 Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified')])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');

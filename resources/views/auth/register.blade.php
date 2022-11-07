@@ -28,7 +28,7 @@
 									</fieldset>
 									<fieldset class="wrap-input">
 										<label for="frm-reg-email">Email Address*</label>
-										<input type="email" id="frm-reg-email" name="email" autocomplete="" placeholder="Email address">
+										<input type="email" id="frm-reg-email" name="email" required autocomplete="" placeholder="Email address">
 									</fieldset>
 
 
