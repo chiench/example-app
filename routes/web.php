@@ -5,6 +5,9 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\CategoryAddComponent;
 use App\Http\Livewire\Admin\CategoryComponent;
 use App\Http\Livewire\Admin\CategoryEditComponent;
+use App\Http\Livewire\Admin\ProductAddComponent;
+use App\Http\Livewire\Admin\ProductComponent;
+use App\Http\Livewire\Admin\ProductEditComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
@@ -50,9 +53,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified', 
     //Category
     Route::get('/admin/categories', CategoryComponent::class)->name('admin.categories');
     Route::get('/admin/categories/add', CategoryAddComponent::class)->name('admin.categories.add');
-    Route::get('/admin/categories/edit', CategoryEditComponent::class)->name('admin.categories.edit');
+    Route::get('/admin/categories/{slug}/edit', CategoryEditComponent::class)->name('admin.categories.edit');
     //Product
-
+    Route::get('/admin/products', ProductComponent::class)->name('admin.products');
+    Route::get('/admin/products/add', ProductAddComponent::class)->name('admin.products.add');
+    Route::get('/admin/products/{slug}/edit/', ProductEditComponent::class)->name('admin.products.edit');
 });
 Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified')])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');

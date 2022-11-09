@@ -2,7 +2,6 @@
     <style>
 
     </style>
-
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
@@ -53,7 +52,7 @@
                                     <td>{{$item->slug}}</td>
                                     <td>{{$item->updated_at}}</td>
                                     <td class="text-right">
-                                        <a name="" id="" class="btn btn-sm btn-primary" href="{{route('admin.categories.edit',$item->slug)}}" role="button">
+                                        <a name="" id="" class="btn btn-sm btn-primary" href="{{route('admin.categories.edit',['slug'=> $item->slug])}}" role="button">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <a name="" id="" class="btn btn-sm btn-danger btndelete" wire:click.prevent='deletecat({{$item->id}})' href="" role="button">

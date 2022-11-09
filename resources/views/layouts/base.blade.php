@@ -61,10 +61,10 @@
                                                         <a title="Dashboard" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Dashboard" href="{{route('admin.categories')}}">Category</a>
+                                                        <a title="Category" href="{{route('admin.categories')}}">Category</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Dashboard" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
+                                                        <a title="Product" href="{{route('admin.products')}}">Product</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Dashboard" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
