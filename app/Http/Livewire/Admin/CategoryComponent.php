@@ -24,14 +24,11 @@ class CategoryComponent extends Component
     {
         if ($this->search) {
             $categories = Category::where('name', 'like', '%' . $this->search . '%')->paginate(4);
-            return view('livewire.admin.category-component', [
-                'categories' => $categories,
-            ])->layout('layouts.base');
         } else {
             $categories = Category::paginate(4);
-            return view('livewire.admin.category-component', [
-                'categories' => $categories,
-            ])->layout('layouts.base');
         }
+        return view('livewire.admin.category-component', [
+            'categories' => $categories,
+        ])->layout('layouts.base');
     }
 }

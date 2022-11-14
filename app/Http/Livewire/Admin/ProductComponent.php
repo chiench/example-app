@@ -22,14 +22,11 @@ class ProductComponent extends Component
     {
         if ($this->search) {
             $products = Product::orderBy('created_at', 'DESC')->where('name', 'like', '%' . $this->search . '%')->paginate(4);
-            return view('livewire.admin.product-component', [
-                'products' => $products,
-            ])->layout('layouts.base');
         } else {
             $products = Product::orderBy('created_at', 'DESC')->paginate(4);
-            return view('livewire.admin.product-component', [
-                'products' => $products,
-            ])->layout('layouts.base');
         }
+        return view('livewire.admin.product-component', [
+            'products' => $products,
+        ])->layout('layouts.base');
     }
 }

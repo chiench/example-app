@@ -7207,3 +7207,10 @@ background-color: #888888;
 .no-products a:hover{
     color: #ff2832;
 }
+.regular-price{
+    font-weight: 300;
+    font-size: 13px !important;
+    color: #aaaaaa !important;
+    text-decoration: line-through;
+    padding-left: 10px;
+}

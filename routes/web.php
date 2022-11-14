@@ -5,9 +5,14 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\CategoryAddComponent;
 use App\Http\Livewire\Admin\CategoryComponent;
 use App\Http\Livewire\Admin\CategoryEditComponent;
+use App\Http\Livewire\Admin\HomeCategoryComponent;
+use App\Http\Livewire\Admin\HomeSliderAddComponent;
+use App\Http\Livewire\Admin\HomeSliderComponent;
+use App\Http\Livewire\Admin\HomeSliderEditComponent;
 use App\Http\Livewire\Admin\ProductAddComponent;
 use App\Http\Livewire\Admin\ProductComponent;
 use App\Http\Livewire\Admin\ProductEditComponent;
+use App\Http\Livewire\Admin\SaleComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
@@ -58,6 +63,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified', 
     Route::get('/admin/products', ProductComponent::class)->name('admin.products');
     Route::get('/admin/products/add', ProductAddComponent::class)->name('admin.products.add');
     Route::get('/admin/products/{slug}/edit/', ProductEditComponent::class)->name('admin.products.edit');
+    // Slider
+    Route::get('/admin/homeslider', HomeSliderComponent::class)->name('admin.homeslider');
+    Route::get('/admin/homeslider/add', HomeSliderAddComponent::class)->name('admin.homeslider.add');
+    Route::get('/admin/homeslider/{id}/edit/', HomeSliderEditComponent::class)->name('admin.homeslider.edit');
+    //HomeCategory
+    Route::get('/admin/homecategory', HomeCategoryComponent::class)->name('admin.homecategory');
+    //Sale
+    Route::get('/admin/sales', SaleComponent::class)->name('admin.sales');
 });
 Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified')])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
