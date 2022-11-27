@@ -6,9 +6,12 @@ use App\Models\Category;
 use App\Models\HomeCategories;
 use App\Models\HomeSlider;
 use App\Models\Product;
+use App\Models\Sales;
 use App\Models\User;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+
 
 class HomeComponent extends Component
 {
@@ -19,6 +22,7 @@ class HomeComponent extends Component
         $homeslider = HomeSlider::where('status', 1)->get();
         $latestProduct = Product::orderBy('created_at', 'DESC')->get()->take(8);
         $homecategories = HomeCategories::find(1);
+        $sales = Sales::find(4);
         $no_of_product = $homecategories->no_of_product;
         $cat = explode(',', $homecategories->sel_categories);
         if ($cat) {
@@ -34,6 +38,7 @@ class HomeComponent extends Component
             'homeslider' => $homeslider,
             'latestProduct' => $latestProduct,
             'categoriesInHome' => $categoriesInHome,
+            'sales' => $sales,
             'products_of_category' => $products_of_category,
         ])->layout('layouts.base');
     }

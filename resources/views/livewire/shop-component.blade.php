@@ -26,7 +26,7 @@
                         <div class="wrap-right">
 
                             <div class="sort-item orderby ">
-                                <select  wire:model="sorting" name="orderby" class="use-chosen">
+                                <select wire:model="sorting" name="orderby" class="use-chosen">
                                     <option value="default" selected="selected">Default sorting</option>
                                     {{-- <option value="date">Sort by date</option> --}}
                                     <option value="price">Sort by price: low to high</option>
@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="sort-item product-per-page">
-                                <select wire:model="pagesize"  name="post-per-page" class="use-chosen">
+                                <select wire:model="pagesize" name="post-per-page" class="use-chosen">
                                     <option value="12" selected="selected">12 per page</option>
                                     <option value="16">16 per page</option>
                                     <option value="18">18 per page</option>
@@ -57,30 +57,35 @@
 
                         <ul class="product-list grid-products equal-container">
 
-                            @foreach ($products as $product )
-                            <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                                <div class="product product-style-3 equal-elem ">
-                                    <div class="product-thumnail">
-                                        <a href="{{route('detail',['slug' => $product->slug])}}"  title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                            <figure><img src="{{ asset('assets/images/products/'.$product->image)}}"
-                                                    alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                        </a>
+                            @foreach ($products as $product)
+                                <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+                                    <div class="product product-style-3 equal-elem ">
+                                        <div class="product-thumnail">
+                                            <a href="{{ route('detail', ['slug' => $product->slug]) }}"
+                                                title="T-Shirt Raw Hem Organic Boro Constrast Denim">
+                                                <figure><img
+                                                        src="{{ asset('assets/images/products/' . $product->image) }}"
+                                                        alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <a href="{{ route('detail', ['slug' => $product->slug]) }}"
+                                                class="product-name"><span>{{ $product->name }}</span></a>
+                                            <div class="wrap-price"><span
+                                                    class="product-price">${{ $product->regular_price }}</span></div>
+                                            <a href="#" wire:click.prevent="addToCart({{ $product }})"
+                                                class="btn add-to-cart">Add To Cart</a>
+                                        </div>
                                     </div>
-                                    <div class="product-info">
-                                        <a href="{{route('detail',['slug' => $product->slug])}}" class="product-name"><span>{{$product->name}}</span></a>
-                                        <div class="wrap-price"><span class="product-price">${{$product->regular_price}}</span></div>
-                                        <a href="#" wire:click.prevent="addToCart({{$product}})" class="btn add-to-cart">Add To Cart</a>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
                             @endforeach
                         </ul>
 
                     </div>
 
                     <div class="wrap-pagination-info paginate-shop">
-                        {{$products -> links()}}
-                        <p class="result-count">Showing 1- {{$products->count() }} of {{$count_product}}  result</p>
+                        {{ $products->links() }}
+                        <p class="result-count">Showing 1- {{ $products->count() }} of {{ $count_product }} result</p>
                     </div>
                 </div>
                 <!--end main products area-->

@@ -9,6 +9,8 @@ use Livewire\WithPagination;
 
 class ShopComponent extends Component
 {
+    public $minPrice;
+    public $maxPrice;
     public function addToCart($product)
     {
         Cart::add($product['id'], $product['name'], 1, $product['regular_price'])->associate('\App\Models\Product');
