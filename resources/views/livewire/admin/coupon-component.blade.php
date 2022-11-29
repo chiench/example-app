@@ -46,6 +46,7 @@
                                     <th>Type</th>
                                     <th>Value</th>
                                     <th>Cart Value</th>
+                                    <th>Expire Date</th>
                                     <th>Updated_at</th>
                                     <th class='text-right'>Tools</th>
                                 </tr>
@@ -58,6 +59,7 @@
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->type == 'fixed' ? $item->value : $item->value . '%' }}</td>
                                         <td>{{ $item->cart_value }}</td>
+                                        <td>{{ $item->expire_date }}</td>
                                         <td>{{ $item->updated_at }}</td>
                                         <td class="text-right">
                                             <a name="" id="" class="btn btn-sm btn-primary"

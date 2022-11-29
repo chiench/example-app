@@ -63,25 +63,68 @@
                     <div class="summary">
                         <div class="order-summary">
                             <h4 class="title-box">Order Summary</h4>
-                            <p class="summary-info"><span class="title">Subtotal</span><b class="index">$
-                                    {{ Cart::instance('cart')->subtotal() }}</b></p>
-                            <p class="summary-info"><span class="title">Tax (21%)</span><b
-                                    class="index">${{ Cart::instance('cart')->tax() }}</b>
-                            </p>
-                            <p class="summary-info total-info "><span class="title">Total</span><b
-                                    class="index">${{ Cart::instance('cart')->total() }}</b></p>
+                            @if (Session::has('couponValid'))
+                                <p class="summary-info"><span class="title">Subtotal</span><b class="index">$
+                                        {{ Cart::instance('cart')->subtotal() }}</b></p>
+
+                                <p class="summary-info"><span class="title">Discount
+                                        ({{ Session::get('couponValid')['code'] }} )</span><b class="index">
+                                        -
+                                        {{ Session::get('couponValid')['type'] == 'fixed' ? '$' . Session::get('couponValid')['value'] : Session::get('couponValid')['value'] . '%' }}</b>
+                                    <a href="#" class="btn btn-delete" wire:click.prevent="removeCoupon"
+                                        style="color: red;" title="">
+                                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                    </a>
+                                </p>
+                                <p class="summary-info"><span class="title">Subtotal with Discount</span><b
+                                        class="index">$
+                                        {{ number_format($subtotalAfterDiscount, 2) }}</b></p>
+                                <p class="summary-info"><span class="title">Tax (21%)</span><b
+                                        class="index">${{ number_format($taxlAfterDiscount, 2) }}</b>
+                                </p>
+                                <p class="summary-info total-info "><span class="title">Total</span><b
+                                        class="index">${{ number_format($totallAfterDiscount, 2) }}</b></p>
+                            @else
+                                <p class="summary-info"><span class="title">Subtotal</span><b class="index">$
+                                        {{ Cart::instance('cart')->subtotal() }}</b></p>
+                                <p class="summary-info"><span class="title">Tax (21%)</span><b
+                                        class="index">${{ Cart::instance('cart')->tax() }}</b>
+                                </p>
+                                <p class="summary-info total-info "><span class="title">Total</span><b
+                                        class="index">${{ Cart::instance('cart')->total() }}</b></p>
+                            @endif
+
                         </div>
                         <div class="checkout-info">
                             <label class="checkbox-field">
-                                <input class="frm-input " name="have-code" id="have-code" value=""
-                                    type="checkbox"><span>I have promo code</span>
+                                <input class="frm-input " name="have-code" id="have-code" wire:model='haveCoupon'
+                                    value="1" type="checkbox"><span>I have promo code</span>
                             </label>
+                            @if ($haveCoupon == 1)
+                                <div style="margin: 20px 0;" class="summary-item">
+                                    <form wire:submit.prevent='checkValidCoupon' name="frm-billing">
+                                        <h4 class="title-box">Enter Your Coupon code:</h4>
+                                        @if (session('error-coupon'))
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ session('error-coupon') }}
+                                            </div>
+                                        @endif
+                                        <p class="row-in-form">
+                                            <label for="coupon-code">Enter Your Coupon code:</label>
+                                            <input id="coupon-code" wire:model='code_coupon' required type="text"
+                                                name="coupon-code" placeholder="">
+                                        </p>
+                                        <button type="submit" class="btn btn-small">Apply</button>
+                                    </form>
+                                </div>
+                            @endif
                             <a class="btn btn-checkout" href="checkout.html">Check out</a>
                             <a class="link-to-shop" href="shop.html">Continue Shopping<i
                                     class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="update-clear">
-                            <a class="btn btn-clear" wire:click.prevent="removeallitem()" href="#">Clear Shopping
+                            <a class="btn btn-clear" wire:click.prevent="removeallitem()" href="#">Clear
+                                Shopping
                                 Cart</a>
                             <a class="btn btn-update" href="#">Update Shopping Cart</a>
                         </div>

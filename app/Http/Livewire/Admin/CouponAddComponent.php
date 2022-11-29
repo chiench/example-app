@@ -11,6 +11,7 @@ class CouponAddComponent extends Component
     public $type;
     public $value;
     public $cart_value;
+    public $expire_date;
     public function mount()
     {
         $this->type = 'fixed';
@@ -34,6 +35,7 @@ class CouponAddComponent extends Component
         $coupon->code = $this->code;
         $coupon->value = $this->value;
         $coupon->type = $this->type;
+        $coupon->expire_date = $this->expire_date;
         $coupon->cart_value = $this->cart_value;
         $coupon->save();
         session()->flash('add-success', 'Add coupon successfully');

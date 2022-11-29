@@ -61,6 +61,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-4">Expire Date</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="expire_date" class="form-control" wire:model='expire_date'
+                                        placeholder="YYYY/MM/DD H:M:S">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <div class="col-md-offset-4 col-md-4  ">
                                     <button type="submit" style="width: 100px;" class="btn btn-success">Save</button>
                                 </div>
@@ -72,3 +79,39 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+        $(function() {
+            $('#expire_date').datetimepicker({
+                    format: 'YYYY-MM-DD h:m:s',
+                })
+                .on('dp.change', function(e) {
+                    var data = $('#expire_date').val();
+                    @this.set('expire_date', data);
+                })
+        });
+
+        // $(function () {
+        //          $('#expire_date').datetimepicker();
+        //      });
+        // $(function(){
+        //     $('#expire_date').datetimepicker();
+        //     // $('#expire_date').datetimepicker({
+        //     //     format : 'Y-MM-DD h:m:s',
+        //     // })
+        //     // .on('dp.change',function(e){
+        //     //     var data = $('#expire_date').val();
+        //     //     @this.set('expire_date',data);
+        //     // })
+        //     // ;
+        // })
+        // Nhúng thư viện giúp multiple select đẹp hơn
+        // $(document).ready(function(){
+        //     $('.sel_categories').select2();
+        //     $('.sel_categories').on('change',function(){
+        //         var data =  $('.sel_categories').select2("val");
+        //         @this.set('sel_categories',data);
+        //     })
+        // });
+    </script>
+@endpush

@@ -23,7 +23,7 @@ class CouponComponent extends Component
     public function render()
     {
         if ($this->search) {
-            $coupons = Coupon::where('name', 'like', '%' . $this->search . '%')->paginate(4);
+            $coupons = Coupon::where('code', 'like', '%' . $this->search . '%')->paginate(4);
         } else {
             $coupons = Coupon::paginate(4);
         }
