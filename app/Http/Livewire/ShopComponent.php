@@ -13,10 +13,27 @@ class ShopComponent extends Component
     public $maxPrice;
     public function addToCart($product)
     {
-        Cart::add($product['id'], $product['name'], 1, $product['regular_price'])->associate('\App\Models\Product');
+        Cart::instance('cart')->add($product['id'], $product['name'], 1, $product['regular_price'])->associate('\App\Models\Product');
         session()->flash('success', 'Task was sucessful');
+        $this->emit('refreshComponent');
         return redirect()->route('Cart');
     }
+    public function addToWishList($product)
+    {
+        Cart::instance('wishlist')->add($product['id'], $product['name'], 1, $product['regular_price'])->associate('\App\Models\Product');
+        $this->emit('refreshComponent');
+    }
+    public function removeItemWishList($product)
+    {
+        foreach (Cart::instance('wishlist')->content() as $wishlist) {
+            if ($wishlist->id == $product) {
+                Cart::instance('wishlist')->remove($wishlist->rowId);
+                $this->emit('refreshComponent');
+                return;
+            }
+        }
+    }
+
     public $sorting;
     public $pagesize;
     public function mount()
@@ -29,7 +46,7 @@ class ShopComponent extends Component
     public function render()
     {
         $count_product = Product::count();
-        // Cart::destroy();
+
         if ($this->sorting == "date") {
             $products = Product::orderBy('created_at', 'DESC')->paginate($this->pagesize);
         } elseif ($this->sorting == "price") {

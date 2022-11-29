@@ -1,8 +1,29 @@
 <div>
+    <style>
+        .whitelist {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            font-size: 32px;
+            z-index: 999;
+        }
+
+        .whitelist .fa {
+            color: #cbcbcb !important;
+        }
+
+        .whitelist .fa:hover {
+            color: #ff2832 !important;
+        }
+
+        .whitelist .actived {
+            color: #ff2832 !important;
+        }
+    </style>
     <main id="main" class="main-site left-sidebar">
-
         <div class="container">
-
             <div class="wrap-breadcrumb">
                 <ul>
                     <li class="item-link"><a href="#" class="link">home</a></li>
@@ -56,10 +77,10 @@
                     <div class="row">
 
                         <ul class="product-list grid-products equal-container">
-
                             @foreach ($products as $product)
                                 <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                     <div class="product product-style-3 equal-elem ">
+
                                         <div class="product-thumnail">
                                             <a href="{{ route('detail', ['slug' => $product->slug]) }}"
                                                 title="T-Shirt Raw Hem Organic Boro Constrast Denim">
@@ -67,6 +88,18 @@
                                                         src="{{ asset('assets/images/products/' . $product->image) }}"
                                                         alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                             </a>
+                                            <div class="whitelist">
+                                                @if (Cart::instance('wishlist')->content()->pluck('id')->contains($product->id))
+                                                    <a href=""
+                                                        wire:click.prevent="removeItemWishList({{ $product->id }})"><i
+                                                            class="fa fa-heart actived" aria-hidden="true"></i></a>
+                                                @else
+                                                    <a href=""
+                                                        wire:click.prevent="addToWishList({{ $product }})"><i
+                                                            class="fa fa-heart" aria-hidden="true"></i></a>
+                                                @endif
+
+                                            </div>
                                         </div>
                                         <div class="product-info">
                                             <a href="{{ route('detail', ['slug' => $product->slug]) }}"

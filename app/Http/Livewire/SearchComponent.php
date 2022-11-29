@@ -22,7 +22,7 @@ class SearchComponent extends Component
     }
     public function addToCart($product)
     {
-        Cart::add($product['id'], $product['name'], 1, $product['regular_price'])->associate('\App\Models\Product');
+        Cart::instance('cart')->add($product['id'], $product['name'], 1, $product['regular_price'])->associate('\App\Models\Product');
         session()->flash('success', 'Task was sucessful');
         return redirect()->route('Cart');
     }

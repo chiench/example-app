@@ -17,7 +17,7 @@
                     </div>
                 @endif
                 <div class="panel panel-default">
-                    <div class="panel-heading">All Categories
+                    <div class="panel-heading">All Coupon
 
                         <div style="margin: 10px 0; display:flex; justify-content: space-between;" class="search">
                             <form class="form-inline" wire:submit.prevent='removeSearch'>
@@ -33,30 +33,35 @@
                                     @endif
                                 </div>
                             </form>
-                            <a href="{{ route('admin.categories.add') }}" class="btn btn-success">Add Category</a>
+                            <a href="{{ route('admin.coupon.add') }}" class="btn btn-success">Add Coupon</a>
                         </div>
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Slug</th>
+                                    <th>Type</th>
+                                    <th>Value</th>
+                                    <th>Cart Value</th>
                                     <th>Updated_at</th>
                                     <th class='text-right'>Tools</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $item)
+                                @foreach ($coupons as $item)
                                     <tr>
                                         <td scope="row">{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->slug }}</td>
+                                        <td>{{ $item->code }}</td>
+                                        <td>{{ $item->type }}</td>
+                                        <td>{{ $item->type == 'fixed' ? $item->value : $item->value . '%' }}</td>
+                                        <td>{{ $item->cart_value }}</td>
                                         <td>{{ $item->updated_at }}</td>
                                         <td class="text-right">
                                             <a name="" id="" class="btn btn-sm btn-primary"
-                                                href="{{ route('admin.categories.edit', ['slug' => $item->slug]) }}"
+                                                href="{{ route('admin.coupon.edit', ['code' => $item->code]) }}"
                                                 role="button">
                                                 <i class="fa fa-edit"></i>
                                             </a>
@@ -71,7 +76,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $categories->links() }}
+                        {{ $coupons->links() }}
                     </div>
                 </div>
             </div>

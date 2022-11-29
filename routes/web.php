@@ -5,6 +5,9 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\CategoryAddComponent;
 use App\Http\Livewire\Admin\CategoryComponent;
 use App\Http\Livewire\Admin\CategoryEditComponent;
+use App\Http\Livewire\Admin\CouponAddComponent;
+use App\Http\Livewire\Admin\CouponComponent;
+use App\Http\Livewire\Admin\CouponEditComponent;
 use App\Http\Livewire\Admin\HomeCategoryComponent;
 use App\Http\Livewire\Admin\HomeSliderAddComponent;
 use App\Http\Livewire\Admin\HomeSliderComponent;
@@ -20,6 +23,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\WishListComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +46,7 @@ Route::get('/cart', CartComponent::class)->name('Cart');
 Route::get('/checkout', CheckoutComponent::class)->name('Checkout');
 Route::get('/detail/{slug}', DetailsComponent::class)->name('detail');
 Route::get('/search', SearchComponent::class)->name('search');
+Route::get('/wish-list', WishListComponent::class)->name('wish-list');
 Route::post('/demo', [DemoController::class, 'index'])->name('demo');
 
 // Route::middleware([
@@ -67,6 +72,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified', 
     Route::get('/admin/homeslider', HomeSliderComponent::class)->name('admin.homeslider');
     Route::get('/admin/homeslider/add', HomeSliderAddComponent::class)->name('admin.homeslider.add');
     Route::get('/admin/homeslider/{id}/edit/', HomeSliderEditComponent::class)->name('admin.homeslider.edit');
+    // Coupon
+    Route::get('/admin/coupon', CouponComponent::class)->name('admin.coupon');
+    Route::get('/admin/coupon/add', CouponAddComponent::class)->name('admin.coupon.add');
+    Route::get('/admin/coupon/{code}/edit/', CouponEditComponent::class)->name('admin.coupon.edit');
     //HomeCategory
     Route::get('/admin/homecategory', HomeCategoryComponent::class)->name('admin.homecategory');
     //Sale
