@@ -22,6 +22,7 @@ use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
+use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\WishListComponent;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,7 @@ Route::get('/cart', CartComponent::class)->name('Cart');
 Route::get('/checkout', CheckoutComponent::class)->name('Checkout');
 Route::get('/detail/{slug}', DetailsComponent::class)->name('detail');
 Route::get('/search', SearchComponent::class)->name('search');
+Route::get('/thankyou', ThankyouComponent::class)->name('thankyou');
 Route::get('/wish-list', WishListComponent::class)->name('wish-list');
 Route::post('/demo', [DemoController::class, 'index'])->name('demo');
 

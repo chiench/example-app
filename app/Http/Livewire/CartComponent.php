@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Coupon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 // use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Session;
@@ -88,6 +89,31 @@ class CartComponent extends Component
     public function removeCoupon()
     {
         session()->forget('couponValid');
+    }
+    public function checkout()
+    {
+        if (Auth::user()) {
+            if (Session::has('couponValid')) {
+                session()->put('checkout', [
+                    'discount' => session('couponValid')['value'],
+                    'subtotal' => $this->subtotalAfterDiscount,
+                    'tax' => $this->taxlAfterDiscount,
+                    'total' => $this->totallAfterDiscount,
+                ]);
+            } else {
+                session()->put('checkout', [
+                    'discount' => 0,
+                    'subtotal' => Cart::instance('cart')->subtotal(),
+                    'tax' => Cart::instance('cart')->tax(),
+                    'total' => Cart::instance('cart')->total()
+                ]);
+            }
+
+            return redirect()->route('Checkout');
+            // dd(session('couponValid'));
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     public function render()

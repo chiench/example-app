@@ -118,7 +118,8 @@
                                     </form>
                                 </div>
                             @endif
-                            <a class="btn btn-checkout" href="checkout.html">Check out</a>
+                            <a class="btn btn-checkout" wire:click.prevent='checkout' href="checkout.html">Check
+                                out</a>
                             <a class="link-to-shop" href="shop.html">Continue Shopping<i
                                     class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                         </div>
