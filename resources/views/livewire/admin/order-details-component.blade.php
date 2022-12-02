@@ -193,6 +193,7 @@
                         </div>
                     </div>
                 @endif
+
                 @if ($orders->transaction)
                     <div class="panel panel-default">
                         <div class="panel-heading"> Transaction
