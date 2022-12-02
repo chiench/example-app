@@ -22,4 +22,8 @@ class Order extends Model
     {
         return $this->hasOne(Shipping::class);
     }
+    public function transaction()
+    {
+        return $this->hasOne(Transition::class);
+    }
 }

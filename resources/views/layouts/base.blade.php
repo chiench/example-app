@@ -103,6 +103,14 @@
                                                             coupon</a>
                                                     </li>
                                                     <li class="menu-item">
+                                                        <a title="orders" href="{{ route('admin.orders') }}">Admin
+                                                            List Orders</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{ route('admin.dashboard') }}">Admin
+                                                            Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item">
                                                         <a title="Dashboard" href="{{ route('admin.dashboard') }}">Admin
                                                             Dashboard</a>
                                                     </li>
@@ -122,6 +130,14 @@
                                                 <a title="Dollar (USD)" href="#"> {{ Auth::user()->name }}<i
                                                         class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu curency">
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{ route('user.dashboard') }}">User
+                                                            Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="orders" href="{{ route('user.orders') }}">My
+                                                            Order</a>
+                                                    </li>
                                                     <li class="menu-item">
                                                         <a title="Dashboard" href="{{ route('user.dashboard') }}">User
                                                             Dashboard</a>

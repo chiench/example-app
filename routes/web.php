@@ -12,10 +12,13 @@ use App\Http\Livewire\Admin\HomeCategoryComponent;
 use App\Http\Livewire\Admin\HomeSliderAddComponent;
 use App\Http\Livewire\Admin\HomeSliderComponent;
 use App\Http\Livewire\Admin\HomeSliderEditComponent;
+use App\Http\Livewire\Admin\OrderComponent;
+use App\Http\Livewire\Admin\OrderDetailsComponent;
 use App\Http\Livewire\Admin\ProductAddComponent;
 use App\Http\Livewire\Admin\ProductComponent;
 use App\Http\Livewire\Admin\ProductEditComponent;
 use App\Http\Livewire\Admin\SaleComponent;
+
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
@@ -24,6 +27,8 @@ use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserOrderComponent;
+use App\Http\Livewire\User\UserOrderDetailsComponent;
 use App\Http\Livewire\WishListComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -82,7 +87,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified', 
     Route::get('/admin/homecategory', HomeCategoryComponent::class)->name('admin.homecategory');
     //Sale
     Route::get('/admin/sales', SaleComponent::class)->name('admin.sales');
+    // Order
+    Route::get('/admin/orders', OrderComponent::class)->name('admin.orders');
+    // Order Details
+    Route::get('/admin/orders/{order_id}/details', OrderDetailsComponent::class)->name('admin.orders.details');
 });
 Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified')])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+    // User Order
+    Route::get('/user/orders', UserOrderComponent::class)->name('user.orders');
+    Route::get('/user/orders/{order_id}/details', UserOrderDetailsComponent::class)->name('user.orders.details');
 });
