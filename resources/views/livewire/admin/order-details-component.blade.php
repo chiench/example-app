@@ -159,7 +159,7 @@
                         </table>
                     </div>
                 </div>
-                @if ($orders->is_shipping_different)
+                @if ($orders->shipping)
                     <div class="panel panel-default">
                         <div class="panel-heading"> Shipping Address
                         </div>

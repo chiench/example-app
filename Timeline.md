@@ -1,30 +1,105 @@
-1. Tạo layout base
-2. Tiếp tục tạo các trang shop, cart, checkout
-3. Kiểm tra xem về việc xác thực xem là Admin hay User ( Use Model: User)
-4. Tạo trang đăng nhập và đăng kí theo mẫu
-5. Tạo trang shop lấy sản phẩm từ CSDL
-6. Tạo trang chi tiết của sản phẩm dữ liệu lấy từ CSDL
-7. Áp dụng gói giỏ hàng của bumbummen99
-8. Manipulate with package installed ( increase quantity)
-9. Decrease the amount of products in the current cart
-10. Sorting use per page and the number of choose products
-11. Continue sorting products use categories
-12. Search any products
-13. Create Models Category ( 2 flied)
-14. Add
-15. Edit
-16. Delete
-17. Create Models Products ( may flied )
-18. Add
-19. Edit
-20. Delete
-21. Create Models Home Page Slider ( be used to preformance the sliders in the home page )
-22. Then show lastest products in the it
-23. The products were illustrated follow the each categories into the product belonged
-24. Then show products which were demonstrated with the best sales
-25. Setting time to product which was showed above ( Create Models Sales :: be used to management time to the sales products)
-26. Making the range slider to filter price of products
-27. Vadiate.
-28. Add alert when click button delete the product
-29. //
-    39 Tạo model Order cac trường user id
+1.Tạo layout base 2. Tiếp tục tạo các trang shop, cart, checkout 3. Kiểm tra xem về việc xác thực xem là Admin hay User ( Use Model: User) 4. Tạo trang đăng nhập và đăng kí theo mẫu 5. Tạo trang shop lấy sản phẩm từ CSDL 6. Tạo trang chi tiết của sản phẩm dữ liệu lấy từ CSDL 7. Áp dụng gói giỏ hàng của bumbummen99 8. Manipulate with package installed ( increase quantity) 9. Decrease the amount of products in the current cart 10. Sorting use per page and the number of choose products 11. Continue sorting products use categories 12. Search any products 13. Create Models Category ( 2 flied) 14. Add 15. Edit 16. Delete 17. Create Models Products ( may flied ) 18. Add 19. Edit 20. Delete 21. Create Models Home Page Slider ( be used to preformance the sliders in the home page ) 22. Then show lastest products in the it 23. The products were illustrated follow the each categories into the product belonged 24. Then show products which were demonstrated with the best sales 25. Setting time to product which was showed above ( Create Models Sales :: be used to management time to the sales products) 26. Making the range slider to filter price of products 27. Vadiate. 28. Add alert when click button delete the product 29. //
+39 Tạo model Order cac trường user id
+
+Garden English đã ghim
+
+1B
+2C
+3B
+4D
+5D
+6C
+7B
+8B
+9C
+10C
+11A
+12B
+13C
+14A
+15A
+16A
+17C
+18B
+19B
+20B
+21C
+22B
+23A
+24A
+25C
+26C
+27A
+28A
+29A
+30B
+31A
+32A
+33B
+34A
+35A
+36D
+37A
+38A
+39A
+40B
+41C
+42B
+43B
+44B
+45B
+46A
+47D
+48C
+49C
+50C
+51C
+52C
+53D
+54B
+55C
+56C
+57D
+58C
+59C
+60A
+61C
+62C
+63A
+64C
+65A
+66C
+67D
+68B
+69C
+70D
+71D
+72B
+73D
+74A
+75D
+76D
+77A
+78C
+79A
+80A
+81A
+82C
+83C
+84A
+85D
+86A
+87A
+88A
+89A
+90B
+91A
+92B
+93C
+94D
+95D
+96D
+97C
+98A
+99D
+100C

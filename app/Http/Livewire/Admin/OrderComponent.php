@@ -40,9 +40,9 @@ class OrderComponent extends Component
     public function render()
     {
         if ($this->search) {
-            $orders = Order::where('user_id', Auth::user()->id)->where('firstname', 'like', '%' . $this->search . '%')->orderBy('created_at', 'DESC')->paginate(5);
+            $orders = Order::where('firstname', 'like', '%' . $this->search . '%')->orderBy('created_at', 'DESC')->paginate(5);
         } else {
-            $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate(5);
+            $orders = Order::orderBy('created_at', 'DESC')->paginate(5);
         }
         return view(
             'livewire.admin.order-component',

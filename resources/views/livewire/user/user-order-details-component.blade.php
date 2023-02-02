@@ -94,6 +94,15 @@
                                             <p class="price">${{ $item->product->regular_price * $item->quantity }}
                                             </p>
                                         </div>
+                                        @if ($orders->status == 'deliverd' && $orders->rstatus == false)
+                                            <div class="price-field">
+                                                <a
+                                                    href="{{ route('user.orders.review', ['order_item_id' => $item->id]) }}">Writing
+                                                    Review</a>
+
+                                            </div>
+                                        @endif
+
 
                                     </li>
                                 @endforeach

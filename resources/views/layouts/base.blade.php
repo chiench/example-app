@@ -139,8 +139,9 @@
                                                             Order</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Dashboard" href="{{ route('user.dashboard') }}">User
-                                                            Dashboard</a>
+                                                        <a title="Change Password"
+                                                            href="{{ route('user.change.password') }}">User
+                                                            Change Password</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Logout" href="{{ route('logout') }}"

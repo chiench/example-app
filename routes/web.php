@@ -26,9 +26,11 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankyouComponent;
+use App\Http\Livewire\User\ChangePasswordComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\UserOrderComponent;
 use App\Http\Livewire\User\UserOrderDetailsComponent;
+use App\Http\Livewire\User\UserReviewComponent;
 use App\Http\Livewire\WishListComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -97,4 +99,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session', 'verified')]
     // User Order
     Route::get('/user/orders', UserOrderComponent::class)->name('user.orders');
     Route::get('/user/orders/{order_id}/details', UserOrderDetailsComponent::class)->name('user.orders.details');
+    // Review
+    Route::get('/user/orders/{order_item_id}/review', UserReviewComponent::class)->name('user.orders.review');
+    // Change Password
+    Route::get('/user/change-password', ChangePasswordComponent::class)->name('user.change.password');
 });
